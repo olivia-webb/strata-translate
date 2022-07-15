@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  # IMAGE NAME HERE:
+    image: # IMAGE NAME HERE
+    ports:
+      - 9000:8080
+    build:
+      context: .
+      args:
+        PIP_EXTRA_INDEX_URL: ${PIP_EXTRA_INDEX_URL}
+        # If using event bridge
+        EVENT_BRIDGE_AWS_ID: ${EVENT_BRIDGE_AWS_ID}
+        EVENT_BRIDGE_AWS_KEY: ${EVENT_BRIDGE_AWS_KEY}
+        EVENT_BRIDGE_EVENT_BUS: ${EVENT_BRIDGE_EVENT_BUS}
+    env_file:
+      - .env
